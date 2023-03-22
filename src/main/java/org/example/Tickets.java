@@ -37,9 +37,8 @@ public class Tickets {
         }
 
         public long getFlightTimeInSeconds(){
-            long zone;
             long estimatedTime = this.departure_time.until(this.arrival_time, SECONDS.toChronoUnit());
-            LocalTime diff = LocalTime.parse("8:00", DateTimeFormatter.ofPattern("H:mm"));
+            LocalTime diff = LocalTime.parse("7:00", DateTimeFormatter.ofPattern("H:mm"));
             long diffInSec = diff.toSecondOfDay();
 
             return estimatedTime + diffInSec;

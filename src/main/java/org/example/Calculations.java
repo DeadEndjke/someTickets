@@ -15,13 +15,22 @@ public class Calculations {
         return LocalTime.ofSecondOfDay(average);
     }
 
+    public static void printAllTime(Tickets tickets){
+        List<LocalTime> times = new ArrayList<>();
+
+        for(int i = 0; i < tickets.getTickets().length; ++i){
+            times.add(LocalTime.ofSecondOfDay(tickets.getTickets()[i].getFlightTimeInSeconds()));
+        }
+        Collections.sort(times);
+        System.out.println(times);
+    }
+
     public static LocalTime getPercentile90(Tickets tickets){
         List<Long> seconds = new ArrayList<>();
         for(int i = 0; i < tickets.getTickets().length; ++i){
             seconds.add(tickets.getTickets()[i].getFlightTimeInSeconds());
         }
         Collections.sort(seconds);
-
         int proc = (int)Math.ceil(0.9 + seconds.size()-1);
 
         return LocalTime.ofSecondOfDay(seconds.get(proc-1));

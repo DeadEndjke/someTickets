@@ -7,7 +7,6 @@ public class App
         Tickets tickets = Parser.getTicketsFromJson(json);
 
         System.out.println("среднее время полета между городами Владивосток и Тель-Авив: " + Calculations.getAverageFlightTimeInSeconds(tickets));
-
         System.out.println("90-й процентиль времени полета между городами Владивосток и Тель-Авив: " + Calculations.getPercentile90(tickets));
 
 
